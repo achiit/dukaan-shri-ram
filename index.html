@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+</head>
+<body>
+<title>Shri Ram Sweets & Snacks</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: maroon festive hero with a marigold pattern band, then a filterable mithai/namkeen menu, gift boxes, visit info. */
+:root {
+  --bg: #FFF9EF;
+  --surface: #FFFFFF;
+  --fg: #3A1512;
+  --muted: #7A5A52;
+  --maroon: #6B1D1A;
+  --on-maroon: #FFF3DC;
+  --marigold: #F0A202;
+  --pistachio: #7C9A3A;
+  --line: #EBD9BC;
+  --display: "Yatra One", "Noto Serif Devanagari", Georgia, serif;
+  --body: "Hind", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1E0F0D; --surface: #2B1613; --fg: #F6E7CC; --muted: #C4A58F;
+    --maroon: #4A1412; --on-maroon: #FFF3DC; --marigold: #F5B72E; --pistachio: #A3C059; --line: #4A2C26;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1E0F0D; --surface: #2B1613; --fg: #F6E7CC; --muted: #C4A58F;
+  --maroon: #4A1412; --on-maroon: #FFF3DC; --marigold: #F5B72E; --pistachio: #A3C059; --line: #4A2C26;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; }
+.wrap { max-width: 1080px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.15; text-wrap: balance; margin: 0; }
+.eyebrow { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--pistachio); }
+
+/* header */
+header { background: var(--maroon); color: var(--on-maroon); position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--maroon); }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; flex-wrap: wrap; }
+.brand { font-family: var(--display); font-size: 24px; text-decoration: none; }
+.brand small { display: block; font-family: var(--body); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; opacity: .8; }
+nav { display: flex; gap: 20px; font-weight: 500; flex-wrap: wrap; }
+nav a { text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; }
+nav a:hover { border-color: var(--marigold); }
+
+/* hero */
+.hero { background: var(--maroon); color: var(--on-maroon); padding-block: 48px 64px; }
+.hero .wrap { display: grid; grid-template-columns: 1.25fr 1fr; gap: 40px; align-items: center; }
+.hero h1 { font-size: clamp(38px, 7vw, 72px); }
+.hero h1 span { color: var(--marigold); }
+.hero .deva { font-family: var(--display); font-size: clamp(20px, 3vw, 28px); color: var(--marigold); margin-bottom: 10px; }
+.hero p { max-width: 46ch; font-size: 19px; opacity: .92; margin: 18px 0 28px; }
+.btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn { display: inline-block; padding: 12px 22px; border-radius: 999px; font-weight: 600; text-decoration: none; border: 2px solid var(--marigold); }
+.btn.primary { background: var(--marigold); color: #3A1512; }
+.btn.ghost { color: var(--on-maroon); }
+.btn:hover { transform: translateY(-1px); }
+.thali { position: relative; aspect-ratio: 1; max-width: 360px; width: 100%; justify-self: center; border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, var(--maroon) 0 34%, transparent 34.5%),
+              repeating-conic-gradient(from 0deg, var(--marigold) 0 10deg, #C9820A 10deg 20deg);
+  display: grid; place-items: center; box-shadow: 0 0 0 10px rgba(240,162,2,.25); }
+.thali div { text-align: center; font-family: var(--display); font-size: clamp(28px, 5vw, 44px); line-height: 1.1; color: var(--marigold); }
+.thali small { display: block; font-family: var(--body); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--on-maroon); margin-top: 6px; }
+.band { height: 14px; background: repeating-linear-gradient(90deg, var(--marigold) 0 18px, var(--pistachio) 18px 36px, var(--maroon) 36px 54px); }
+
+section { padding-block: 64px; }
+.head { display: grid; gap: 8px; margin-bottom: 28px; }
+.head h2 { font-size: clamp(30px, 4.5vw, 44px); }
+.head p { color: var(--muted); max-width: 56ch; margin: 0; }
+
+/* menu */
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+.tab { font: inherit; font-weight: 600; padding: 8px 18px; border-radius: 999px; border: 2px solid var(--line); background: transparent; color: var(--fg); cursor: pointer; }
+.tab[aria-pressed="true"] { background: var(--maroon); color: var(--on-maroon); border-color: var(--maroon); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }
+.item { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: start; min-width: 0; }
+.disc { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-size: 28px; color: #3A1512; box-shadow: inset 0 0 0 4px rgba(255,255,255,.35); }
+.item h3 { font-size: 21px; }
+.item .hi { font-family: var(--display); color: var(--muted); font-size: 15px; }
+.item p { margin: 6px 0 0; font-size: 15px; color: var(--muted); line-height: 1.45; }
+.tag { display: inline-block; margin-top: 8px; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--pistachio); }
+
+/* gifting */
+.gift { background: var(--maroon); color: var(--on-maroon); }
+.gift .head p { color: var(--on-maroon); opacity: .85; }
+.gift .eyebrow { color: var(--marigold); }
+.boxes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.box { border: 2px solid var(--marigold); border-radius: 14px; padding: 22px; }
+.box h3 { font-size: 24px; color: var(--marigold); }
+.box ul { margin: 12px 0 0; padding-left: 18px; }
+.box li { margin-bottom: 4px; }
+.box .wt { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; opacity: .8; margin-top: 10px; }
+
+/* about + visit */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.two > * { min-width: 0; }
+.about p { margin: 0 0 14px; max-width: 58ch; }
+.facts { display: grid; gap: 0; border-top: 1px solid var(--line); margin-top: 22px; }
+.facts div { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.facts b { font-weight: 600; }
+.facts span { color: var(--muted); text-align: right; }
+.visit { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 26px; }
+.visit h3 { font-size: 26px; margin-bottom: 14px; }
+.visit dl { margin: 0; display: grid; gap: 14px; }
+.visit dt { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--pistachio); font-weight: 600; }
+.visit dd { margin: 2px 0 0; user-select: all; overflow-wrap: anywhere; }
+.visit .btn { margin-top: 20px; background: var(--maroon); color: var(--on-maroon); border-color: var(--maroon); }
+
+footer { background: var(--maroon); color: var(--on-maroon); padding-block: 28px; font-size: 15px; }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+footer .deva { font-family: var(--display); color: var(--marigold); }
+
+@media (max-width: 780px) {
+  .hero .wrap, .two { grid-template-columns: 1fr; }
+  .thali { max-width: 260px; order: -1; }
+  nav { gap: 14px; font-size: 15px; }
+  section { padding-block: 48px; }
+}
+@media (prefers-reduced-motion: reduce) { .btn:hover { transform: none; } }
+</style>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">Shri Ram<small>Sweets &amp; Snacks</small></a>
+    <nav aria-label="Main">
+      <a href="#menu">Menu</a>
+      <a href="#gifts">Gift boxes</a>
+      <a href="#about">About</a>
+      <a href="#visit">Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <div class="deva">श्री राम मिठाई एवं नमकीन</div>
+        <h1>Fresh mithai, <span>hot namkeen</span>, every day.</h1>
+        <p>Laddus rolled by hand, jalebis straight from the kadhai and samosas that sell out by evening. Pick up a box for the family or stay for chai.</p>
+        <div class="btns">
+          <a class="btn primary" href="#menu">See the menu</a>
+          <a class="btn ghost" href="#visit">Find the shop</a>
+        </div>
+      </div>
+      <div class="thali" aria-hidden="true"><div>श्री राम<small>Since day one</small></div></div>
+    </div>
+  </div>
+  <div class="band"></div>
+
+  <section id="menu">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Our counter</span>
+        <h2>Mithai and namkeen</h2>
+        <p>Made fresh in small batches. Rates change with the season and the price of dry fruits, so ask at the counter for today's rate per kg.</p>
+      </div>
+      <div class="tabs" role="group" aria-label="Filter menu">
+        <button class="tab" data-f="all" aria-pressed="true">All</button>
+        <button class="tab" data-f="sweet" aria-pressed="false">Sweets</button>
+        <button class="tab" data-f="snack" aria-pressed="false">Snacks</button>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="gifts" class="gift">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Diwali &amp; weddings</span>
+        <h2>Gift boxes, packed to order</h2>
+        <p>Order a few days ahead for festivals. We pack, tie and label each box at the shop.</p>
+      </div>
+      <div class="boxes">
+        <div class="box">
+          <h3>Mithai Dabba</h3>
+          <ul><li>Kaju katli</li><li>Motichoor laddu</li><li>Besan barfi</li><li>Soan papdi</li></ul>
+          <div class="wt">500 g · 1 kg</div>
+        </div>
+        <div class="box">
+          <h3>Namkeen Hamper</h3>
+          <ul><li>Aloo bhujia</li><li>Mathri</li><li>Mixture</li><li>Moong dal</li></ul>
+          <div class="wt">500 g · 1 kg</div>
+        </div>
+        <div class="box">
+          <h3>Festival Combo</h3>
+          <ul><li>Half mithai, half namkeen</li><li>Dry fruit assortment</li><li>Gift wrapping included</li></ul>
+          <div class="wt">1 kg · 2 kg</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap two">
+      <div class="about">
+        <span class="eyebrow">About us</span>
+        <h2 style="font-size:clamp(30px,4.5vw,44px);margin:8px 0 18px">A family shop, run the old way</h2>
+        <p>Shri Ram has been making sweets and snacks for the neighbourhood for years. Pure ghee, fresh milk and no shortcuts. The kadhai is lit before sunrise so the first batch of kachori is ready when you are.</p>
+        <p>Come for a quarter kilo of jalebi on a Sunday morning, or order a full festival spread for the house. Either way, it is packed the same careful way.</p>
+      </div>
+      <div class="facts">
+        <div><b>Made with</b><span>Pure desi ghee</span></div>
+        <div><b>Milk sweets</b><span>Best eaten within 2 days</span></div>
+        <div><b>Namkeen</b><span>Stays crisp for 3 to 4 weeks</span></div>
+        <div><b>Orders</b><span>Bulk and festival orders taken</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit" style="padding-top:0">
+    <div class="wrap">
+      <div class="visit">
+        <h3>Visit Shri Ram</h3>
+        <dl>
+          <div><dt>Address</dt><dd>[Shop address, market, city, PIN]</dd></div>
+          <div><dt>Phone / WhatsApp</dt><dd>[+91 XXXXX XXXXX]</dd></div>
+          <div><dt>Open</dt><dd>Every day, 8:00 am to 10:00 pm</dd></div>
+        </dl>
+        <a class="btn" href="#top">Back to top</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="band"></div>
+<footer>
+  <div class="wrap">
+    <span class="deva">श्री राम मिठाई एवं नमकीन</span>
+    <span>© Shri Ram Sweets &amp; Snacks</span>
+  </div>
+</footer>
+
+<script>
+var items = [
+  { t: "sweet", n: "Kaju Katli", h: "काजू कतली", d: "Thin cashew fudge with a light silver leaf finish.", c: "#E8E4D6", l: "क" },
+  { t: "sweet", n: "Motichoor Laddu", h: "मोतीचूर लड्डू", d: "Tiny boondi pearls in ghee and sugar syrup, rolled by hand.", c: "#F0A202", l: "म" },
+  { t: "sweet", n: "Gulab Jamun", h: "गुलाब जामुन", d: "Soft khoya dumplings soaked in warm cardamom syrup.", c: "#B5582A", l: "ग" },
+  { t: "sweet", n: "Rasgulla", h: "रसगुल्ला", d: "Spongy chenna balls in light sugar syrup.", c: "#F6F0E0", l: "र" },
+  { t: "sweet", n: "Jalebi", h: "जलेबी", d: "Crisp saffron spirals, fried to order.", c: "#F5A623", l: "ज" },
+  { t: "sweet", n: "Besan Barfi", h: "बेसन बर्फी", d: "Roasted gram flour and ghee, dense and grainy.", c: "#E3B64F", l: "ब" },
+  { t: "sweet", n: "Soan Papdi", h: "सोन पापड़ी", d: "Flaky layers that melt, with pistachio on top.", c: "#EBC878", l: "स" },
+  { t: "sweet", n: "Kesar Peda", h: "केसर पेड़ा", d: "Milk peda scented with saffron and elaichi.", c: "#E9A93A", l: "प" },
+  { t: "snack", n: "Samosa", h: "समोसा", d: "Crisp pastry with spiced potato and peas. Served hot with chutney.", c: "#D9923B", l: "स" },
+  { t: "snack", n: "Pyaaz Kachori", h: "प्याज़ कचौरी", d: "Flaky shell stuffed with spiced onion. Best in the morning.", c: "#C98A3E", l: "क" },
+  { t: "snack", n: "Aloo Bhujia", h: "आलू भुजिया", d: "Thin, crunchy potato sev with black pepper.", c: "#E6B94A", l: "भ" },
+  { t: "snack", n: "Mathri", h: "मठरी", d: "Flaky, peppery tea-time biscuit made with ajwain.", c: "#D8A65A", l: "म" },
+  { t: "snack", n: "Mixture", h: "मिक्सचर", d: "Sev, peanuts, curry leaves and boondi in one bag.", c: "#B9C56A", l: "मि" },
+  { t: "snack", n: "Khaman Dhokla", h: "खमन ढोकला", d: "Light steamed gram flour cake with a mustard tadka.", c: "#EFD35A", l: "ढ" }
+];
+var grid = document.getElementById("grid");
+var labels = { sweet: "Mithai", snack: "Namkeen" };
+function render(f) {
+  grid.innerHTML = "";
+  items.forEach(function (it) {
+    if (f !== "all" && it.t !== f) return;
+    var el = document.createElement("article");
+    el.className = "item";
+    el.innerHTML = '<div class="disc" style="background:' + it.c + '" aria-hidden="true">' + it.l + '</div>' +
+      '<div><h3>' + it.n + '</h3><div class="hi">' + it.h + '</div><p>' + it.d + '</p><span class="tag">' + labels[it.t] + '</span></div>';
+    grid.appendChild(el);
+  });
+}
+document.querySelectorAll(".tab").forEach(function (b) {
+  b.addEventListener("click", function () {
+    document.querySelectorAll(".tab").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+    render(b.dataset.f);
+  });
+});
+render("all");
+</script>
+
+</body>
+</html>
